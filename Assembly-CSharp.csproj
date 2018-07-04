@@ -64,10 +64,10 @@
     <Compile Include="Assets\enemy.cs" />
     <Compile Include="Assets\wayPoints.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Claudio/Documents/TowerDefence/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Claudio/Documents/GitHub/TowerDefence/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Claudio/Documents/TowerDefence/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Claudio/Documents/GitHub/TowerDefence/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
