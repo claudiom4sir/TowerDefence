@@ -61,9 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\EnemySpawner.cs" />
-    <Compile Include="Assets\WayPoints.cs" />
+    <Compile Include="Assets\Script\Enemy.cs" />
+    <Compile Include="Assets\Script\EnemySpawner.cs" />
+    <Compile Include="Assets\Script\WayPoints.cs" />
+    <Compile Include="Assets\Turret.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Claudio/Documents/GitHub/TowerDefence/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
