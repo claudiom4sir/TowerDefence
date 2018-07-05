@@ -907,8 +907,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 4.3
+  range: 7.01
   rotationParts: {fileID: 1533553101}
+  rotationSpeed: 5
 --- !u!1 &347770881
 GameObject:
   m_ObjectHideFlags: 0
