@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(target != null)
+        if (target != null)
         {
             Vector3 bulletDirection = target.position - transform.position;
             float dinstanceInThisFrame = bulletSpeed * Time.deltaTime; // the distance that the bullet will run in this frame
@@ -24,6 +24,8 @@ public class Bullet : MonoBehaviour {
                 transform.Translate(bulletDirection.normalized * dinstanceInThisFrame, Space.World); // if in this frame the bullet will not hit the target
             }
         }
+        else
+            Destroy(gameObject);
 	}
 
     void HitTarget ()
