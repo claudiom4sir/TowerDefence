@@ -2,11 +2,18 @@
 
 public class Turret : MonoBehaviour {
 
-    public Transform target;
-    public float range = 11f;    // this is the range of the turret
-    private string enemyTag = "enemy";  // it is used for identify the enemies with them tag
+    private Transform target;
     public Transform rotationParts;
+    private string enemyTag = "enemy";  // it is used for identify the enemies with them tag
+    public GameObject bullet;
+    public Transform fireOrigin;
+
+    [Header("Turret attributes")]
+    public float range = 11f;    // this is the range of the turret
     public float rotationSpeed = 10f;
+    public float fireRate = 1f; // one bullet each second
+    public float fireCountDown = 0f;
+
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +28,22 @@ public class Turret : MonoBehaviour {
             Quaternion lookRotation = Quaternion.LookRotation(directionRotation); // the turret ruotes in the directionRotation
             Vector3 rotation = Quaternion.Lerp(rotationParts.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
             rotationParts.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            if (fireCountDown <= 0f)
+            {
+                Shoot();
+                fireCountDown = 1 / fireRate;
+            }
+            fireCountDown = fireCountDown - Time.deltaTime;
         }
 	}
+
+    void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, fireOrigin.position, fireOrigin.rotation);
+        Bullet localBullet = newBullet.GetComponent<Bullet>();
+        if (localBullet != null)
+            localBullet.SetTarget(target);
+    }
 
     void UpdateTarget ()    // it is used for update the targets 
     {

@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy () // it clone the enemy ***attention*** the assignment is made by me
     {
-        enemyFactory = Instantiate(enemyFactory, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemyFactory, spawnPoint.position, spawnPoint.rotation);
     }
 
 }
