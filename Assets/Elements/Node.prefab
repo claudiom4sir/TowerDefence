@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33816646317418386}
   - component: {fileID: 23351737620895624}
   - component: {fileID: 65712221031374296}
+  - component: {fileID: 114629548282069554}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -96,3 +97,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114629548282069554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1263239099004992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c90f5058bc94949b1fdcfb2a8ef18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMouseEnterColor: {r: 0, g: 0, b: 0, a: 0}

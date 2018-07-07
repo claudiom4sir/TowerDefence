@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour {
     public Transform rotationParts;
     private string enemyTag = "enemy";  // it is used for identify the enemies with them tag
     public GameObject bullet;
-    public Transform fireOrigin;
+    public Transform fireOrigin;    // it is used for show the origin of the bullet
 
     [Header("Turret attributes")]
     public float range = 11f;    // this is the range of the turret
@@ -37,12 +37,12 @@ public class Turret : MonoBehaviour {
         }
 	}
 
-    void Shoot()
+    void Shoot()    // this method is invoked when a turret shots
     {
         GameObject newBullet = Instantiate(bullet, fireOrigin.position, fireOrigin.rotation);
         Bullet localBullet = newBullet.GetComponent<Bullet>();
         if (localBullet != null)
-            localBullet.SetTarget(target);
+            localBullet.SetTarget(target); // it set the target of the bullet
     }
 
     void UpdateTarget ()    // it is used for update the targets 

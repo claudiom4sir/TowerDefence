@@ -13,19 +13,15 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(target == null)
-        {
-            ;
-        }
-        else
+		if(target != null)
         {
             Vector3 bulletDirection = target.position - transform.position;
-            float dinstanceInThisFrame = bulletSpeed * Time.deltaTime;
+            float dinstanceInThisFrame = bulletSpeed * Time.deltaTime; // the distance that the bullet will run in this frame
             if (bulletDirection.magnitude <= dinstanceInThisFrame)
-                HitTarget();
+                HitTarget(); // if in this frame the bullet will hit the target
             else
             {
-                transform.Translate(bulletDirection.normalized * dinstanceInThisFrame, Space.World);
+                transform.Translate(bulletDirection.normalized * dinstanceInThisFrame, Space.World); // if in this frame the bullet will not hit the target
             }
         }
 	}
@@ -34,7 +30,7 @@ public class Bullet : MonoBehaviour {
     {
         GameObject localImpactEffect = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(localImpactEffect, 0.5f);
-       // Destroy(target.gameObject);
+       //Destroy(target.gameObject); // for destroy the target enemy (super power turret!)
         Destroy(gameObject);
     }
 }
