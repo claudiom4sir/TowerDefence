@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4144539281776278}
   - component: {fileID: 114047153393157526}
+  - component: {fileID: 114309064227193798}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -55,3 +56,16 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   timeBetweenWave: 5
   waveCountDownText: {fileID: 0}
+--- !u!114 &114309064227193798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218883287121860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115f2ed93661f0945a86b523322bf9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standardTurret: {fileID: 1402696226937260, guid: cea7c808106924045b9a8387dbd2726c,
+    type: 2}

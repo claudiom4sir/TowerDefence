@@ -109,3 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMouseEnterColor: {r: 0.8867924, g: 0.5730687, b: 0.7485686, a: 0}
+  buildManager: {fileID: 114309064227193798, guid: e4476fe199c6e8d43b1771097ed5380b,
+    type: 2}
+  offSet: {x: 0, y: 0.5, z: 0}
