@@ -19,7 +19,11 @@ public class EnemySpawner : MonoBehaviour
             StartCoroutine(WaveStart());    //start a new coroutine that can be paused by a yield
             countDown = timeBetweenWave;
         }
-        waveCountDownText.text = Mathf.Floor(countDown).ToString(); //update the value inside the text
+        string timeToNextWave = Mathf.Floor(countDown).ToString(); //update the value inside the text
+        if (timeToNextWave.Equals("0"))
+            waveCountDownText.text = "Wave " + (waveIndex + 1) + " incoming!";
+        else
+            waveCountDownText.text = timeToNextWave;
         countDown = countDown - Time.deltaTime;
 	}
 

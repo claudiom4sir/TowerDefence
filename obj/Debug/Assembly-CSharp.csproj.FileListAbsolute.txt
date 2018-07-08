@@ -329,7 +329,6 @@ C:\Users\Claudio\Documents\GitHub\TowerDefence\Temp\bin\Debug\UnityEngine.UIAuto
 C:\Users\Claudio\Documents\GitHub\TowerDefence\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\Claudio\Documents\GitHub\TowerDefence\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\Claudio\Documents\GitHub\TowerDefence\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.dll
