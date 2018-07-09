@@ -20,9 +20,7 @@ public class Bullet : MonoBehaviour {
             if (bulletDirection.magnitude <= dinstanceInThisFrame)
                 HitTarget(); // if in this frame the bullet will hit the target
             else
-            {
                 transform.Translate(bulletDirection.normalized * dinstanceInThisFrame, Space.World); // if in this frame the bullet will not hit the target
-            }
         }
         else
             Destroy(gameObject);
