@@ -2,9 +2,15 @@
 
 public class BuildManager : MonoBehaviour {
 
-    private GameObject turretToBuild = null;
+    private GameObject turretToBuild;
     public GameObject standardTurret;
-    public GameObject anotherTurret;
+    public GameObject missilLauncherTurret;
+    public static BuildManager instance;
+
+    void Awake ()
+    {
+        instance = this;
+    }
 
     public void SetTurretToBuild (GameObject turret)
     {

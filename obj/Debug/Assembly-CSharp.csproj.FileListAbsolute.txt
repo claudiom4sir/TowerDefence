@@ -333,3 +333,4 @@ C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.csproj.
 C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.dll
 C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Claudio\Documents\GitHub\TowerDefence\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
