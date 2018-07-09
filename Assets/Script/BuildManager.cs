@@ -2,9 +2,9 @@
 
 public class BuildManager : MonoBehaviour {
 
-    private GameObject turretToBuild;
-
+    private GameObject turretToBuild = null;
     public GameObject standardTurret;
+    public GameObject anotherTurret;
 
     public void SetTurretToBuild (GameObject turret)
     {
@@ -13,7 +13,7 @@ public class BuildManager : MonoBehaviour {
 
     public GameObject TurretToBuild ()
     {
-        return standardTurret;
+        return turretToBuild;
     }
 
 }

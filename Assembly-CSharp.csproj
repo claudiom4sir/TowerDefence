@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\Node.cs" />
     <Compile Include="Assets\Script\Turret.cs" />
     <Compile Include="Assets\Script\WayPoints.cs" />
+    <Compile Include="Assets\Shop.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Claudio/Documents/GitHub/TowerDefence/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

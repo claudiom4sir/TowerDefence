@@ -17,6 +17,8 @@ public class Node : MonoBehaviour {
 
     void OnMouseDown() // it is used for create a new turret up the this node
     {
+        if (buildManager.TurretToBuild() == null) // check if there is one turret to build
+            return;
         if (turret != null) //because you cant create more then one turret up this node
             Debug.Log("Can't create a turret, turret already exists");
         else
@@ -25,7 +27,9 @@ public class Node : MonoBehaviour {
 
     void OnMouseEnter() // it is used when mouse enter in this node
     {
-        localRenderer.material.color = onMouseEnterColor;
+        if (buildManager.TurretToBuild() != null)
+            localRenderer.material.color = onMouseEnterColor;
+        
     }
 
     void OnMouseExit () // it is used when mouse exit out this node
