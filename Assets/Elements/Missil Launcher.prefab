@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationParts: {fileID: 4029963447952396}
-  bullet: {fileID: 1182383010414080, guid: aa61c197d51e94f46bc5c2446543e9a5, type: 2}
+  bullet: {fileID: 1778756551194282, guid: 60dbefb7c3926424eadab5ad137618e0, type: 2}
   fireOrigin: {fileID: 4419160579155530}
   range: 11
   rotationSpeed: 10
