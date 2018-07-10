@@ -16,28 +16,27 @@ public class Turret : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	private void Start () {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);  // it periodically calls UpdateTarget method
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (target != null)
+	private void Update () {
+        if (target == null)
+            return;
+        Vector3 directionRotation = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(directionRotation); // the turret ruotes in the directionRotation
+        Vector3 rotation = Quaternion.Lerp(rotationParts.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+        rotationParts.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        if (fireCountDown <= 0f)
         {
-            Vector3 directionRotation = target.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(directionRotation); // the turret ruotes in the directionRotation
-            Vector3 rotation = Quaternion.Lerp(rotationParts.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-            rotationParts.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-            if (fireCountDown <= 0f)
-            {
-                Shoot();
-                fireCountDown = 1 / fireRate;
-            }
-            fireCountDown = fireCountDown - Time.deltaTime;
+            Shoot();
+            fireCountDown = 1 / fireRate;
         }
+        fireCountDown = fireCountDown - Time.deltaTime;
 	}
 
-    void Shoot()    // this method is invoked when a turret shots
+    private void Shoot()    // this method is invoked when a turret shots
     {
         GameObject newBullet = Instantiate(bullet, fireOrigin.position, fireOrigin.rotation);
         Bullet localBullet = newBullet.GetComponent<Bullet>();
@@ -45,7 +44,7 @@ public class Turret : MonoBehaviour {
             localBullet.SetTarget(target); // it set the target of the bullet
     }
 
-    void UpdateTarget ()    // it is used for update the targets 
+    private void UpdateTarget ()    // it is used for update the targets 
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);     // it will contains the targets
         float shortestDistance = Mathf.Infinity;
@@ -65,7 +64,7 @@ public class Turret : MonoBehaviour {
             target = null;
     }
 
-    void OnDrawGizmosSelected ()    // it is used for draw the sphere for the range of the turret
+    private void OnDrawGizmosSelected ()    // it is used for draw the sphere for the range of the turret
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);

@@ -6,36 +6,41 @@ public class Node : MonoBehaviour {
     public Color onMouseEnterColor;
     private Renderer localRenderer;
     private Color startColor;
-    private GameObject turret;  // the turret up this node
+    public GameObject turret;  // the turret up this node
     public Vector3 offSet;  // is the offset for put the turret really up this node
+    private BuildManager buildManager;
 
-    void Start()
+    private void Start()
     {
+        buildManager = BuildManager.instance;
         localRenderer = GetComponent<Renderer>();
         startColor = localRenderer.material.color;
     }
 
-    void OnMouseDown() // it is used for create a new turret up the this node
+    public Vector3 GetBuildingPosition() // it is used for find immediatly the position where build
     {
-        if (BuildManager.instance.TurretToBuild() != null && !EventSystem.current.IsPointerOverGameObject()) // check if there is one turret selected in Build Manager and if the mouse is over Shop
-        {
-            if (turret != null) //because you cant create more then one turret up this node
-                Debug.Log("Can't create a turret, turret already exists");
-            else
-                turret = Instantiate(BuildManager.instance.TurretToBuild(), transform.position + offSet, transform.rotation);
-        }
+        return transform.position + offSet;
     }
 
-    void OnMouseEnter() // it is used when mouse enter in this node
+    private void OnMouseDown() // it is used for create a new turret up the this node
     {
-        if (BuildManager.instance.TurretToBuild() != null && !EventSystem.current.IsPointerOverGameObject())
-        {
+        if (!buildManager.CanBuild(this) || EventSystem.current.IsPointerOverGameObject()) // check if there is one turret selected in Build Manager and if the mouse is over Shop
+            return;
+        buildManager.BuildTurretOnNode(this);
+    }
+
+    private void OnMouseEnter() // it is used when mouse enter in this node
+    {
+        if (turret != null)
+            return;
+        if (buildManager.CanBuild(this) && !EventSystem.current.IsPointerOverGameObject())
             localRenderer.material.color = onMouseEnterColor;
-        }
-        
+        TurretCostsInfo turrectSelected = buildManager.GetTurretToBuild();
+        if (turrectSelected != null && (PlayerStatistic.Money - turrectSelected.cost < 0)) // if you have enought money, the node's color became red
+            localRenderer.material.color = Color.red;
     }
 
-    void OnMouseExit () // it is used when mouse exit out this node
+    private void OnMouseExit () // it is used when mouse exit out this node
     {
         localRenderer.material.color = startColor;
     } 

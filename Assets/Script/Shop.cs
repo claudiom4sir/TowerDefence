@@ -2,14 +2,23 @@
 
 public class Shop : MonoBehaviour {
 
-	public void SelectStandardTurret() // it allows to change the turret to build
+    public TurretCostsInfo stantardTurret;
+    public TurretCostsInfo missilLauncherTurret;
+    private BuildManager buildManager;
+
+    private void Start()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.standardTurret);
+        buildManager = BuildManager.instance;
+    }
+
+    public void SelectStandardTurret() // it allows to change the turret to build
+    {
+        buildManager.SelectTurretToBuild(stantardTurret);
     }
 
     public void SelectMissilLauncherTurret() // like the method over
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.missilLauncherTurret);
+        buildManager.SelectTurretToBuild(missilLauncherTurret);
     }
 
 }

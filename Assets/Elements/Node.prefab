@@ -108,5 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c90f5058bc94949b1fdcfb2a8ef18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onMouseEnterColor: {r: 1, g: 0, b: 0.010103226, a: 0}
+  onMouseEnterColor: {r: 0.46818078, g: 1, b: 0, a: 0}
+  turret: {fileID: 0}
   offSet: {x: 0, y: 0.5, z: 0}

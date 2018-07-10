@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public Text waveCountDownText; // it is used for display the time for the next wave
 	
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
     {
         if (countDown <= 0)
         {
@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void SpawnEnemy () // it clones the enemy
+    private void SpawnEnemy () // it clones the enemy
     {
         Instantiate(enemyFactory, spawnPoint.position, spawnPoint.rotation);
     }

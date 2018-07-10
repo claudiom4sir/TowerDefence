@@ -7,14 +7,17 @@ public class Bullet : MonoBehaviour {
     public GameObject impactEffect;
     public float rangeEffect = 0f;
 
-    public void SetTarget (Transform target)
+    public void SetTarget (Transform _target)
     {
-        this.target = target;
+        target = _target;
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (target != null)
+	private void Update ()
+    {
+        if (target == null)
+            Destroy(gameObject);
+        else
         {
             Vector3 bulletDirection = target.position - transform.position;
             float dinstanceInThisFrame = bulletSpeed * Time.deltaTime; // the distance that the bullet will run in this frame
@@ -26,11 +29,9 @@ public class Bullet : MonoBehaviour {
                 transform.LookAt(target); // for look in a direction of the target
             }
         }
-        else
-            Destroy(gameObject);
 	}
 
-    void HitTarget ()
+    private void HitTarget ()
     {
         GameObject localImpactEffect = Instantiate(impactEffect, transform.position, transform.rotation);
         if (rangeEffect >= 0)
@@ -41,12 +42,12 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    void Damage(Transform target)
+    private void Damage(Transform target)
     {
         //Destroy(target.gameObject);
     }
 
-    void Explode()
+    private void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, rangeEffect); // it returns the objects that the bullet hits when explodes
         foreach (Collider collider in colliders)
@@ -54,7 +55,7 @@ public class Bullet : MonoBehaviour {
                 Damage(collider.transform);
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, rangeEffect);

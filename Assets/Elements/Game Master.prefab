@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4843913059934838}
   - component: {fileID: 114023664155287930}
   - component: {fileID: 114857449594655576}
+  - component: {fileID: 114369857477290400}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -57,6 +58,18 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   timeBetweenWave: 5
   waveCountDownText: {fileID: 0}
+--- !u!114 &114369857477290400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500760191155610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f753195945aaa514296ffb7a0fe5d4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartMoney: 0
 --- !u!114 &114857449594655576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115f2ed93661f0945a86b523322bf9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurret: {fileID: 1920818264979006, guid: cea7c808106924045b9a8387dbd2726c,
+  buildSTEffect: {fileID: 1220381710448338, guid: 48add88b4a281b846b9ef7e0dd45c75b,
     type: 2}
-  missilLauncherTurret: {fileID: 1692196944569034, guid: 48bf499c1aaa8af42a5cffe1d178bef4,
+  buildMLEffect: {fileID: 1103887926767552, guid: ca433f2a0c46df04daa9da07c9dc8d45,
     type: 2}
+  buildLTEffect: {fileID: 0}
