@@ -126,6 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   bulletSpeed: 20
-  impactEffect: {fileID: 1014991097998854, guid: 8f3cb172821a1b545bc719011e9bd300,
+  impactEffect: {fileID: 1359154707937722, guid: 06e080d25ded11441b5133e7335ab6d8,
     type: 2}
   rangeEffect: 7

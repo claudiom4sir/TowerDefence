@@ -263,5 +263,5 @@ MonoBehaviour:
   fireOrigin: {fileID: 4236798488341328}
   range: 10
   rotationSpeed: 10
-  fireRate: 5
+  fireRate: 10
   fireCountDown: 0

@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour {
 
     void Damage(Transform target)
     {
-        Destroy(target.gameObject);
+        //Destroy(target.gameObject);
     }
 
     void Explode()
