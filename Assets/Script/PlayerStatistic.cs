@@ -2,12 +2,15 @@
 
 public class PlayerStatistic : MonoBehaviour {
 
-    public static int Money;
-    public int StartMoney;
+    public static int money;
+    public int startMoney;
+    public static int lives;
+    public int startLives;
 
 	// Use this for initialization
 	private void Start () {
-        Money = StartMoney;
+        money = startMoney;
+        lives = startLives;
 	}
 	
 	

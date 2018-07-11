@@ -36,13 +36,13 @@ public class BuildManager : MonoBehaviour {
 
     public void BuildTurretOnNode(Node node)
     {
-        if (PlayerStatistic.Money >= turretToBuild.cost)
+        if (PlayerStatistic.money >= turretToBuild.cost)
         {
-            PlayerStatistic.Money = PlayerStatistic.Money - turretToBuild.cost;
+            PlayerStatistic.money = PlayerStatistic.money - turretToBuild.cost;
             node.turret = Instantiate(turretToBuild.element, node.GetBuildingPosition(), Quaternion.identity);
             GameObject buildEffect = Instantiate(ChooseBuildEffect(), node.GetBuildingPosition(), Quaternion.identity);
             Destroy(buildEffect, 1f);
-            Debug.Log("Your money are " + PlayerStatistic.Money);
+            Debug.Log("Your money are " + PlayerStatistic.money);
         }
         else
             Debug.Log("Player doesn't have much money for build this turret");
@@ -50,7 +50,7 @@ public class BuildManager : MonoBehaviour {
 
     public bool CanBuild(Node node) // you can build only if there is a torret to build and if you have enought money and if the node has not turret yet
     {
-        if (turretToBuild != null && (PlayerStatistic.Money - turretToBuild.cost >= 0) && node.turret == null)
+        if (turretToBuild != null && (PlayerStatistic.money - turretToBuild.cost >= 0) && node.turret == null)
 
             return true;
         else

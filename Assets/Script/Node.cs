@@ -36,7 +36,7 @@ public class Node : MonoBehaviour {
         if (buildManager.CanBuild(this) && !EventSystem.current.IsPointerOverGameObject())
             localRenderer.material.color = onMouseEnterColor;
         TurretCostsInfo turrectSelected = buildManager.GetTurretToBuild();
-        if (turrectSelected != null && (PlayerStatistic.Money - turrectSelected.cost < 0)) // if you have enought money, the node's color became red
+        if (turrectSelected != null && (PlayerStatistic.money - turrectSelected.cost < 0)) // if you have enought money, the node's color became red
             localRenderer.material.color = Color.red;
     }
 
