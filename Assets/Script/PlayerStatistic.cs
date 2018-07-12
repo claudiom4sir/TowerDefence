@@ -12,6 +12,11 @@ public class PlayerStatistic : MonoBehaviour {
         money = startMoney;
         lives = startLives;
 	}
+
+    public static void LoseOneLife()
+    {
+        lives--;
+    }
 	
 	
 }

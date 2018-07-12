@@ -45,7 +45,7 @@ public class BuildManager : MonoBehaviour {
             Debug.Log("Your money are " + PlayerStatistic.money);
         }
         else
-            Debug.Log("Player doesn't have much money for build this turret");
+            Debug.Log("Player doesn't have enough money for build this turret");
     }
 
     public bool CanBuild(Node node) // you can build only if there is a torret to build and if you have enought money and if the node has not turret yet
