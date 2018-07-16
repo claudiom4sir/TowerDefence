@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    private Boo gameEnded = false;
+    private bool gameEnded = false;
 
 	// Update is called once per frame
 	private void Update ()

@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour {
 
     private void Damage(Transform target)
     {
-        target.TakeDamage();
+        target.GetComponent<Enemy>().TakeDamage(damage);
     }
 
     private void Explode()

@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f753195945aaa514296ffb7a0fe5d4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 100
+  startMoney: 1000
   startLives: 0
 --- !u!114 &114857449594655576
 MonoBehaviour:
