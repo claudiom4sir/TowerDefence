@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
     public float bulletSpeed = 70f;
     public GameObject impactEffect;
     public float rangeEffect = 0f;
-    public int damage;
+    public int damage = 10;
 
     public void SetTarget (Transform _target)
     {
@@ -45,10 +45,10 @@ public class Bullet : MonoBehaviour {
 
     private void Damage(Transform target)
     {
-        target.GetComponent<Enemy>().TakeDamage(damage);
+        target.GetComponent<Enemy>().TakeDamage(damage); // get the Enemy script of target and call TakeDamage
     }
 
-    private void Explode()
+    private void Explode() // it call the Damage function for all enemies that are in action range
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, rangeEffect); // it returns the objects that the bullet hits when explodes
         foreach (Collider collider in colliders)

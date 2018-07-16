@@ -61,13 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\LivesUI.cs" />
     <Compile Include="Assets\Script\BuildManager.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\CameraController.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\EnemySpawner.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\LivesUI.cs" />
     <Compile Include="Assets\Script\MoneyUI.cs" />
     <Compile Include="Assets\Script\Node.cs" />
     <Compile Include="Assets\Script\PlayerStatistic.cs" />

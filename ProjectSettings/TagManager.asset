@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - ML
   - ST
+  - LT
   layers:
   - Default
   - TransparentFX

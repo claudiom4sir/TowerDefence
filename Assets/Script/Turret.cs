@@ -14,6 +14,9 @@ public class Turret : MonoBehaviour {
     public float fireRate = 1f; // one bullet each second
     public float fireCountDown = 0f;
 
+    [Header("Laser turrets attributes")]
+    public bool isLaserTurret = false;
+    public LineRenderer lineRenderer;
 
 	// Use this for initialization
 	private void Start () {
@@ -23,18 +26,43 @@ public class Turret : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () {
         if (target == null)
+        {
+            if (isLaserTurret && lineRenderer.enabled)
+                lineRenderer.enabled = false;
             return;
-        Vector3 directionRotation = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(directionRotation); // the turret ruotes in the directionRotation
-        Vector3 rotation = Quaternion.Lerp(rotationParts.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-        rotationParts.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        }
+        LockOnTarget();
+        if (isLaserTurret)
+            UseLaser();
+        else
+            UseBullet();
+	}
+
+    private void UseLaser() // only if the turret is a laser turret
+    {
+
+        lineRenderer.SetPosition(0, fireOrigin.position);
+        lineRenderer.SetPosition(1, target.position);
+        lineRenderer.enabled = true;
+    }
+
+    private void UseBullet() // it is used if the turret is not a laser turret
+    {
         if (fireCountDown <= 0f)
         {
             Shoot();
             fireCountDown = 1 / fireRate;
         }
         fireCountDown = fireCountDown - Time.deltaTime;
-	}
+    }
+
+    private void LockOnTarget() // the turret lock on a specific target
+    {
+        Vector3 directionRotation = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(directionRotation); // the turret ruotes in the directionRotation
+        Vector3 rotation = Quaternion.Lerp(rotationParts.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+        rotationParts.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
 
     private void Shoot()    // this method is invoked when a turret shots
     {

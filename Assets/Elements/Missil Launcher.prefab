@@ -152,7 +152,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813035319680902}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.6906183, y: 1.0899999, z: 1.275488}
+  m_LocalPosition: {x: 1.6906183, y: 1, z: 1.275488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4029963447952396}
@@ -264,3 +264,5 @@ MonoBehaviour:
   rotationSpeed: 10
   fireRate: 1
   fireCountDown: 0
+  useLaser: 0
+  lineRenderer: {fileID: 0}
