@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
     public float bulletSpeed = 70f;
     public GameObject impactEffect;
     public float rangeEffect = 0f;
+    public int damage;
 
     public void SetTarget (Transform _target)
     {
@@ -44,7 +45,7 @@ public class Bullet : MonoBehaviour {
 
     private void Damage(Transform target)
     {
-        //Destroy(target.gameObject);
+        target.TakeDamage();
     }
 
     private void Explode()
