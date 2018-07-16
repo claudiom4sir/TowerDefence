@@ -2564,22 +2564,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4705162178092986, guid: 6f2aa7e50dcee694db903b4e36346d04,
     type: 2}
   m_PrefabInternal: {fileID: 349521881}
---- !u!1 &1081337197 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1500760191155610, guid: e4476fe199c6e8d43b1771097ed5380b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1286322131}
---- !u!114 &1081337198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1081337197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fe740cb3339ad240bcc3463e5246c54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1084665021
 Prefab:
   m_ObjectHideFlags: 0
@@ -3104,11 +3088,6 @@ Prefab:
         type: 2}
       propertyPath: StartMoney
       value: 100000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114369857477290400, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: startMoney
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4476fe199c6e8d43b1771097ed5380b, type: 2}
