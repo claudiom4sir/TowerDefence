@@ -2178,7 +2178,7 @@ MonoBehaviour:
     element: {fileID: 1813035319680902, guid: 48bf499c1aaa8af42a5cffe1d178bef4, type: 2}
     cost: 200
   laserTurret:
-    element: {fileID: 1228372389472072, guid: 690aba52a3586054eb5e956fc35ed9cb, type: 2}
+    element: {fileID: 1869023959490706, guid: 690aba52a3586054eb5e956fc35ed9cb, type: 2}
     cost: 300
 --- !u!4 &845654360 stripped
 Transform:

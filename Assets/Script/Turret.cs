@@ -3,16 +3,18 @@
 public class Turret : MonoBehaviour {
 
     private Transform target;
-    public Transform rotationParts;
     private string enemyTag = "enemy";  // it is used for identify the enemies with them tag
-    public GameObject bullet;
-    public Transform fireOrigin;    // it is used for show the origin of the bullet
 
     [Header("Turret attributes")]
+    public Transform fireOrigin;    // it is used for show the origin of the bullet
+    public Transform rotationParts;
     public float range = 11f;    // this is the range of the turret
     public float rotationSpeed = 10f;
     public float fireRate = 1f; // one bullet each second
     public float fireCountDown = 0f;
+
+    [Header("Type of fire")]
+    public GameObject bullet;
 
     [Header("Laser turrets attributes")]
     public bool isLaserTurret = false;
@@ -27,8 +29,9 @@ public class Turret : MonoBehaviour {
 	private void Update () {
         if (target == null)
         {
-            if (isLaserTurret && lineRenderer.enabled)
-                lineRenderer.enabled = false;
+            if (isLaserTurret)
+                if (lineRenderer.enabled)
+                    lineRenderer.enabled = false;
             return;
         }
         LockOnTarget();
@@ -40,10 +43,10 @@ public class Turret : MonoBehaviour {
 
     private void UseLaser() // only if the turret is a laser turret
     {
-
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, fireOrigin.position);
         lineRenderer.SetPosition(1, target.position);
-        lineRenderer.enabled = true;
     }
 
     private void UseBullet() // it is used if the turret is not a laser turret
@@ -56,7 +59,7 @@ public class Turret : MonoBehaviour {
         fireCountDown = fireCountDown - Time.deltaTime;
     }
 
-    private void LockOnTarget() // the turret lock on a specific target
+    private void LockOnTarget() // the turret is locks on a specific target
     {
         Vector3 directionRotation = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(directionRotation); // the turret ruotes in the directionRotation
