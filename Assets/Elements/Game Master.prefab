@@ -86,4 +86,5 @@ MonoBehaviour:
     type: 2}
   buildMLEffect: {fileID: 1103887926767552, guid: ca433f2a0c46df04daa9da07c9dc8d45,
     type: 2}
-  buildLTEffect: {fileID: 0}
+  buildLTEffect: {fileID: 1103887926767552, guid: 585e0179434d70a47a56e90e063e668b,
+    type: 2}

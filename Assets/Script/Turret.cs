@@ -4,6 +4,7 @@ public class Turret : MonoBehaviour {
 
     private Transform target;
     private string enemyTag = "enemy";  // it is used for identify the enemies with them tag
+    private Enemy enemyComponent;
 
     [Header("Turret attributes")]
     public Transform fireOrigin;    // it is used for show the origin of the bullet
@@ -19,6 +20,9 @@ public class Turret : MonoBehaviour {
     [Header("Laser turrets attributes")]
     public bool isLaserTurret = false;
     public LineRenderer lineRenderer;
+    public ParticleSystem laserImpactEffect;   // it is the effect when the laser hits the target
+    public int laserDamage = 1;
+    public float reduceVelocityOverHit = 0.5f;
 
 	// Use this for initialization
 	private void Start () {
@@ -31,7 +35,10 @@ public class Turret : MonoBehaviour {
         {
             if (isLaserTurret)
                 if (lineRenderer.enabled)
+                {
                     lineRenderer.enabled = false;
+                    laserImpactEffect.Stop();
+                }
             return;
         }
         LockOnTarget();
@@ -43,10 +50,18 @@ public class Turret : MonoBehaviour {
 
     private void UseLaser() // only if the turret is a laser turret
     {
+
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
-        lineRenderer.SetPosition(0, fireOrigin.position);
-        lineRenderer.SetPosition(1, target.position);
+        enemyComponent.TakeDamage(laserDamage);
+        enemyComponent.ModifySpeed(reduceVelocityOverHit);
+        laserImpactEffect.transform.position = target.position;
+        laserImpactEffect.Play();
+        Vector3 directionLaserImpactEffect = transform.position - target.position;
+        laserImpactEffect.transform.rotation = Quaternion.LookRotation(directionLaserImpactEffect); // for rotate the cone of laserImpactEffect
+        lineRenderer.SetPosition(0, fireOrigin.position); // the position where laser has origin
+        lineRenderer.SetPosition(1, target.position);   // the end position of the laser
+
     }
 
     private void UseBullet() // it is used if the turret is not a laser turret
@@ -90,7 +105,10 @@ public class Turret : MonoBehaviour {
             }
         }
         if (nearestEnemy != null && shortestDistance <= range)
+        {
             target = nearestEnemy.transform;
+            enemyComponent = target.GetComponent<Enemy>();
+        }
         else
             target = null;
     }
