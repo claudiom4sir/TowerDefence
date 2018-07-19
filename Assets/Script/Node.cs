@@ -22,8 +22,10 @@ public class Node : MonoBehaviour {
         return transform.position + offSet;
     }
 
-    private void OnMouseDown() // it is used for create a new turret up the this node
+    private void OnMouseDown() // it is used for create a new turret up the this node, or shows the update/sell pannel
     {
+        if (turret != null)
+            buildManager.SelectNode(this);
         if (!buildManager.CanBuild(this) || EventSystem.current.IsPointerOverGameObject()) // check if there is one turret selected in Build Manager and if the mouse is over Shop
             return;
         buildManager.BuildTurretOnNode(this);
