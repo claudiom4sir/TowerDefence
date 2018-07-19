@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (countDown <= 0)
         {
-            StartCoroutine(WaveStart());    //start a new coroutine that can be paused by a yield
+            StartCoroutine(WaveStart());    //start a new coroutine that can be paused by a yield return
             countDown = timeBetweenWave;
         }
         string timeToNextWave = Mathf.Floor(countDown).ToString(); //update the value inside the text
@@ -27,9 +27,11 @@ public class EnemySpawner : MonoBehaviour
         countDown = countDown - Time.deltaTime;
 	}
 
+    // coroutine is necessary because the enemy will be created every WaitForSeconds() time;
     IEnumerator WaveStart ()// it is used when a new wave starts
     {
         waveIndex++;
+        PlayerStatistic.rounds = waveIndex;
         Debug.Log("Wave " + waveIndex + " incoming!");
         for (int i = 0; i < waveIndex; i++)
         {

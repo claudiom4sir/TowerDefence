@@ -55,9 +55,9 @@ public class Turret : MonoBehaviour {
             lineRenderer.enabled = true;
         enemyComponent.TakeDamage(laserDamage);
         enemyComponent.ModifySpeed(reduceVelocityOverHit);
-        laserImpactEffect.transform.position = target.position;
-        laserImpactEffect.Play();
         Vector3 directionLaserImpactEffect = transform.position - target.position;
+        laserImpactEffect.transform.position = target.position + directionLaserImpactEffect.normalized;
+        laserImpactEffect.Play();
         laserImpactEffect.transform.rotation = Quaternion.LookRotation(directionLaserImpactEffect); // for rotate the cone of laserImpactEffect
         lineRenderer.SetPosition(0, fireOrigin.position); // the position where laser has origin
         lineRenderer.SetPosition(1, target.position);   // the end position of the laser

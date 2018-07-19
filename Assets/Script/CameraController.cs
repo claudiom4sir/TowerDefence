@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
+        if (GameManager.gameEnded)  // it is used for disable the moviment when the game is ended
+            return;
         if (Input.GetKeyDown(KeyCode.Z)) // Z is toggle, the commands for moviment can be disabled
             lookMoviment = !lookMoviment;
         if (lookMoviment) // you can access here only if command are not disabled

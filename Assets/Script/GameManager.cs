@@ -2,21 +2,25 @@
 
 public class GameManager : MonoBehaviour {
 
-    private bool gameEnded = false;
+    public static bool gameEnded;
     public GameObject gameOverUI;
 
-	// Update is called once per frame
-	private void Update ()
+    private void Start()
+    {
+        gameEnded = false;
+    }
+    // Update is called once per frame
+    private void Update ()
     {
         if (gameEnded)
             return;
-        if (PlayerStatistic.lives <= 0)
+        if (PlayerStatistic.lives <= 0 || Input.GetKey(KeyCode.G))
             EndGame();
 	}
 
     private void EndGame()
     {
-        Debug.Log("game over");
+        GameManager.gameEnded = true;
         gameOverUI.SetActive(true);
     }
 }
