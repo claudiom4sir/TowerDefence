@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114023664155287930}
   - component: {fileID: 114857449594655576}
   - component: {fileID: 114369857477290400}
+  - component: {fileID: 114576035408936896}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -71,6 +72,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMoney: 1000
   startLives: 0
+--- !u!114 &114576035408936896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500760191155610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f330f9323e9ce2468daedb6682745be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
 --- !u!114 &114857449594655576
 MonoBehaviour:
   m_ObjectHideFlags: 1
