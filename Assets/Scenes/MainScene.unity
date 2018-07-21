@@ -2868,14 +2868,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stantardTurret:
-    element: {fileID: 1920818264979006, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
-    cost: 100
+    prefab: {fileID: 1920818264979006, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
+    buildCost: 100
+    upgradeCost: 100
   missilLauncherTurret:
-    element: {fileID: 1813035319680902, guid: 48bf499c1aaa8af42a5cffe1d178bef4, type: 2}
-    cost: 200
+    prefab: {fileID: 1813035319680902, guid: 48bf499c1aaa8af42a5cffe1d178bef4, type: 2}
+    buildCost: 200
+    upgradeCost: 200
   laserTurret:
-    element: {fileID: 1869023959490706, guid: 690aba52a3586054eb5e956fc35ed9cb, type: 2}
-    cost: 300
+    prefab: {fileID: 1869023959490706, guid: 690aba52a3586054eb5e956fc35ed9cb, type: 2}
+    buildCost: 300
+    upgradeCost: 300
 --- !u!4 &845654360 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4705162178092986, guid: 6f2aa7e50dcee694db903b4e36346d04,
@@ -3225,7 +3228,6 @@ GameObject:
   - component: {fileID: 987114918}
   - component: {fileID: 987114917}
   - component: {fileID: 987114916}
-  - component: {fileID: 987114915}
   m_Layer: 5
   m_Name: Lives Canvas
   m_TagString: Untagged
@@ -3233,22 +3235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &987114915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987114914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &987114916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3297,7 +3283,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 987114914}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 28.1}
+  m_LocalPosition: {x: 0, y: 0, z: 26.3}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 552895926}
@@ -6222,7 +6208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1920818264979006, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762285420856916, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y

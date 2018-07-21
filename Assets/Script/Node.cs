@@ -7,6 +7,8 @@ public class Node : MonoBehaviour {
     private Renderer localRenderer;
     private Color startColor;
     public GameObject turret;  // the turret up this node
+    public TurretCostsInfo turretCostsInfo; // it is used for store the turret costs info for update/sell current turret
+    private bool isUpgraded = false; // it is used for test if the turret is upgraded yet
     public Vector3 offSet;  // is the offset for put the turret really up this node
     private BuildManager buildManager;
 
@@ -25,10 +27,43 @@ public class Node : MonoBehaviour {
     private void OnMouseDown() // it is used for create a new turret up the this node, or shows the update/sell pannel
     {
         if (turret != null)
+        {
             buildManager.SelectNode(this);
+            return;
+        }
         if (!buildManager.CanBuild(this) || EventSystem.current.IsPointerOverGameObject()) // check if there is one turret selected in Build Manager and if the mouse is over Shop
             return;
-        buildManager.BuildTurretOnNode(this);
+        BuildTurret(buildManager.GetTurretToBuild());
+    }
+
+    public bool GetIsUpgraded()
+    {
+        return isUpgraded;
+    }
+
+    private void BuildTurret(TurretCostsInfo turretInfo)
+    {
+        if (PlayerStatistic.money >= turretInfo.buildCost)
+        {
+            PlayerStatistic.money = PlayerStatistic.money - turretInfo.buildCost;
+            turret = Instantiate(turretInfo.prefab, GetBuildingPosition(), Quaternion.identity);
+            GameObject buildEffect = Instantiate(buildManager.ChooseBuildEffect(), GetBuildingPosition(), Quaternion.identity);
+            Destroy(buildEffect, 1f);
+            Debug.Log("Your money are " + PlayerStatistic.money);
+        }
+        else
+            Debug.Log("Player doesn't have much money for build this turret");
+    }
+
+    public void UpgradeTurretOnNode()
+    {
+        if (PlayerStatistic.money >= turretCostsInfo.upgradeCost)
+        {
+            PlayerStatistic.money = PlayerStatistic.money - turretCostsInfo.upgradeCost;
+            Debug.Log("Turret Upgraded");
+        }
+        else
+            Debug.Log("You don't have enough money for update the turret");
     }
 
     private void OnMouseEnter() // it is used when mouse enter in this node
@@ -38,7 +73,7 @@ public class Node : MonoBehaviour {
         if (buildManager.CanBuild(this) && !EventSystem.current.IsPointerOverGameObject())
             localRenderer.material.color = onMouseEnterColor;
         TurretCostsInfo turrectSelected = buildManager.GetTurretToBuild();
-        if (turrectSelected != null && (PlayerStatistic.money - turrectSelected.cost < 0)) // if you have enought money, the node's color became red
+        if (turrectSelected != null && (PlayerStatistic.money - turrectSelected.buildCost < 0)) // if you have enought money, the node's color became red
             localRenderer.material.color = Color.red;
     }
 

@@ -3,7 +3,8 @@
 [System.Serializable]
 public class TurretCostsInfo  {
 
-    public GameObject element;
-    public int cost;
+    public GameObject prefab;
+    public int buildCost;
+    public int upgradeCost;
 
 }

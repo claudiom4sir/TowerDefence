@@ -22,11 +22,11 @@ public class Shop : MonoBehaviour {
         {
             text = button.GetComponentInChildren<Text>();
             if (button.name.Contains("Standard"))
-                text.text = stantardTurret.cost.ToString();
+                text.text = stantardTurret.buildCost.ToString();
             else if (button.name.Contains("Missil"))
-                text.text = missilLauncherTurret.cost.ToString();
+                text.text = missilLauncherTurret.buildCost.ToString();
             else if (button.name.Contains("Laser"))
-                text.text = laserTurret.cost.ToString();
+                text.text = laserTurret.buildCost.ToString();
             else
                 Debug.Log("The name of the button in Shop doesnt exist");
         }

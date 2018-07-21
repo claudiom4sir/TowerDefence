@@ -49,9 +49,9 @@ public class BuildManager : MonoBehaviour {
         DeselectNode();
     }
 
-    private GameObject ChooseBuildEffect() // it is used for choos the correct build effect looking the tag of the turretToBuild
+    public GameObject ChooseBuildEffect() // it is used for choos the correct build effect looking the tag of the turretToBuild
     {
-        string tag = turretToBuild.element.tag;
+        string tag = turretToBuild.prefab.tag;
         if (tag.Equals("ST"))
             return buildSTEffect;
         else if (tag.Equals("ML"))
@@ -60,23 +60,17 @@ public class BuildManager : MonoBehaviour {
             return buildLTEffect;
     }
 
-    public void BuildTurretOnNode(Node node)
+    public bool CanUpdate(Node node) // it check if you can update the turret on this node
     {
-        if (PlayerStatistic.money >= turretToBuild.cost)
-        {
-            PlayerStatistic.money = PlayerStatistic.money - turretToBuild.cost;
-            node.turret = Instantiate(turretToBuild.element, node.GetBuildingPosition(), Quaternion.identity);
-            GameObject buildEffect = Instantiate(ChooseBuildEffect(), node.GetBuildingPosition(), Quaternion.identity);
-            Destroy(buildEffect, 1f);
-            Debug.Log("Your money are " + PlayerStatistic.money);
-        }
+        if (node.turret != null && PlayerStatistic.money - node.turretCostsInfo.upgradeCost >= 0 && !node.GetIsUpgraded())
+            return true;
         else
-            Debug.Log("Player doesn't have much money for build this turret");
+            return false;
     }
 
     public bool CanBuild(Node node) // you can build only if there is a torret to build and if you have enought money and if the node has not turret yet
     {
-        if (turretToBuild != null && (PlayerStatistic.money - turretToBuild.cost >= 0) && node.turret == null)
+        if (turretToBuild != null && (PlayerStatistic.money - turretToBuild.buildCost >= 0) && node.turret == null)
             return true;
         else
             return false;
