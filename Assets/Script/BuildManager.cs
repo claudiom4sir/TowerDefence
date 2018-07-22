@@ -37,7 +37,7 @@ public class BuildManager : MonoBehaviour {
         }
     }
 
-    private void DeselectNode()
+    public void DeselectNode()
     {
         selectedNode = null;
         nodeUI.SetTarget(null);

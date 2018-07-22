@@ -64,6 +64,11 @@ public class Turret : MonoBehaviour {
 
     }
 
+    public void Upgrade(Turret turret)
+    {
+        // implementation is missing
+    }
+
     private void UseBullet() // it is used if the turret is not a laser turret
     {
         if (fireCountDown <= 0f)

@@ -7,10 +7,13 @@ public class Node : MonoBehaviour {
     private Renderer localRenderer;
     private Color startColor;
     public GameObject turret;  // the turret up this node
-    public TurretCostsInfo turretCostsInfo; // it is used for store the turret costs info for update/sell current turret
     private bool isUpgraded = false; // it is used for test if the turret is upgraded yet
     public Vector3 offSet;  // is the offset for put the turret really up this node
     private BuildManager buildManager;
+
+    [HideInInspector]
+    public TurretCostsInfo turretCostsInfo; // it is used for store the turret costs info for update/sell current turret
+
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class Node : MonoBehaviour {
         if (PlayerStatistic.money >= turretInfo.buildCost)
         {
             PlayerStatistic.money = PlayerStatistic.money - turretInfo.buildCost;
+            turretCostsInfo = turretInfo;
             turret = Instantiate(turretInfo.prefab, GetBuildingPosition(), Quaternion.identity);
             GameObject buildEffect = Instantiate(buildManager.ChooseBuildEffect(), GetBuildingPosition(), Quaternion.identity);
             Destroy(buildEffect, 1f);
@@ -60,7 +64,8 @@ public class Node : MonoBehaviour {
         if (PlayerStatistic.money >= turretCostsInfo.upgradeCost)
         {
             PlayerStatistic.money = PlayerStatistic.money - turretCostsInfo.upgradeCost;
-            Debug.Log("Turret Upgraded");
+            isUpgraded = true;  // for don' allow to re-update the turret
+            turret.transform.localScale = turret.transform.localScale * 1.25f;
         }
         else
             Debug.Log("You don't have enough money for update the turret");
