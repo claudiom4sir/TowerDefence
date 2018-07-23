@@ -34,7 +34,7 @@ public class Node : MonoBehaviour {
             buildManager.SelectNode(this);
             return;
         }
-        if (!buildManager.CanBuild(this) || EventSystem.current.IsPointerOverGameObject()) // check if there is one turret selected in Build Manager and if the mouse is over Shop
+        if (EventSystem.current.IsPointerOverGameObject()) // check if there is one turret selected in Build Manager and if the mouse is over Shop
             return;
         BuildTurret(buildManager.GetTurretToBuild());
     }
@@ -46,29 +46,39 @@ public class Node : MonoBehaviour {
 
     private void BuildTurret(TurretCostsInfo turretInfo)
     {
-        if (PlayerStatistic.money >= turretInfo.buildCost)
+        if (buildManager.CanBuild(this))
         {
             PlayerStatistic.money = PlayerStatistic.money - turretInfo.buildCost;
             turretCostsInfo = turretInfo;
             turret = Instantiate(turretInfo.prefab, GetBuildingPosition(), Quaternion.identity);
             GameObject buildEffect = Instantiate(buildManager.ChooseBuildEffect(), GetBuildingPosition(), Quaternion.identity);
             Destroy(buildEffect, 1f);
-            Debug.Log("Your money are " + PlayerStatistic.money);
         }
         else
-            Debug.Log("Player doesn't have much money for build this turret");
+            Debug.Log("You can't build the turret here");
+    }
+
+    public void SellTurretOnNode()
+    {
+        PlayerStatistic.money = PlayerStatistic.money + turretCostsInfo.sellCost;
+        Destroy(turret);
+        turretCostsInfo = null;
+        GameObject sellEffect = Instantiate(buildManager.sellEffect, GetBuildingPosition(), Quaternion.identity);
+        Destroy(sellEffect, 1f);
     }
 
     public void UpgradeTurretOnNode()
     {
-        if (PlayerStatistic.money >= turretCostsInfo.upgradeCost)
+        if (buildManager.CanUpdate(this))
         {
             PlayerStatistic.money = PlayerStatistic.money - turretCostsInfo.upgradeCost;
             isUpgraded = true;  // for don' allow to re-update the turret
             turret.transform.localScale = turret.transform.localScale * 1.25f;
+            Turret _turret = turret.GetComponentInChildren<Turret>();
+            _turret.Upgrade(_turret);
         }
         else
-            Debug.Log("You don't have enough money for update the turret");
+            Debug.Log("You can't upgrade the turret");
     }
 
     private void OnMouseEnter() // it is used when mouse enter in this node

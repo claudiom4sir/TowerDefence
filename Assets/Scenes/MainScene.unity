@@ -1177,7 +1177,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 234003023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1577262526}
+        m_MethodName: SellTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &234003023
@@ -1386,7 +1397,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4751937184081726, guid: 9eea968e6dc503c44b72a9fbe285a503, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.6
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 4751937184081726, guid: 9eea968e6dc503c44b72a9fbe285a503, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1394,7 +1405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4751937184081726, guid: 9eea968e6dc503c44b72a9fbe285a503, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.981
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 4751937184081726, guid: 9eea968e6dc503c44b72a9fbe285a503, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2128,7 +2139,7 @@ Transform:
   m_PrefabInternal: {fileID: 341691433}
   m_GameObject: {fileID: 622515297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6, y: -0.59375, z: 1.981}
+  m_LocalPosition: {x: 1.63, y: -0.59375, z: 2.56}
   m_LocalScale: {x: 131.86769, y: 1.3186758, z: 131.86757}
   m_Children:
   - {fileID: 170076735}
@@ -2871,14 +2882,17 @@ MonoBehaviour:
     prefab: {fileID: 1920818264979006, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
     buildCost: 100
     upgradeCost: 100
+    sellCost: 0
   missilLauncherTurret:
     prefab: {fileID: 1813035319680902, guid: 48bf499c1aaa8af42a5cffe1d178bef4, type: 2}
     buildCost: 200
     upgradeCost: 200
+    sellCost: 0
   laserTurret:
-    prefab: {fileID: 1869023959490706, guid: 690aba52a3586054eb5e956fc35ed9cb, type: 2}
+    prefab: {fileID: 1294474103659156, guid: 03785df6afc381d4b833efeadcff03f9, type: 2}
     buildCost: 300
     upgradeCost: 300
+    sellCost: 0
 --- !u!4 &845654360 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4705162178092986, guid: 6f2aa7e50dcee694db903b4e36346d04,
@@ -3945,7 +3959,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1577262526}
-        m_MethodName: UpdateTurret
+        m_MethodName: UpgradeTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4192,6 +4206,12 @@ Prefab:
       propertyPath: nodeUI
       value: 
       objectReference: {fileID: 1577262526}
+    - target: {fileID: 114857449594655576, guid: e4476fe199c6e8d43b1771097ed5380b,
+        type: 2}
+      propertyPath: sellEffect
+      value: 
+      objectReference: {fileID: 1098632834973360, guid: 660e76da1c238964783a97fa35073be6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4476fe199c6e8d43b1771097ed5380b, type: 2}
   m_IsPrefabParent: 0
@@ -4828,6 +4848,7 @@ MonoBehaviour:
   upgradeText: {fileID: 229342693}
   sellText: {fileID: 2030565949}
   upgradeButton: {fileID: 1258520345}
+  sellButton: {fileID: 2030565949}
 --- !u!4 &1583380321 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4705162178092986, guid: 6f2aa7e50dcee694db903b4e36346d04,
@@ -6202,7 +6223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4762285420856916, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4762285420856916, guid: cea7c808106924045b9a8387dbd2726c, type: 2}
       propertyPath: m_LocalRotation.y

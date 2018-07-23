@@ -9,6 +9,7 @@ public class NodeUI : MonoBehaviour {
     public Text upgradeText;
     public Text sellText;
     public Button upgradeButton;
+    public Text sellButton;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class NodeUI : MonoBehaviour {
         ui.SetActive(false);
     }
 
-    public void SetTarget (Node _target)
+    public void SetTarget (Node _target) // different action when _turret is null or not
     {
         if (_target == null)
             ui.SetActive(false);
@@ -29,6 +30,7 @@ public class NodeUI : MonoBehaviour {
         {
             target = _target;
             transform.position = _target.GetBuildingPosition();
+            sellButton.text = "Sell\n€" + target.turretCostsInfo.GetSellCost();
             if (!target.GetIsUpgraded())
             {
                 upgradeText.text = "Upgrade\n€ " + target.turretCostsInfo.upgradeCost;
@@ -43,12 +45,18 @@ public class NodeUI : MonoBehaviour {
         }
     }
 
-    public void UpdateTurret()
+    public void UpgradeTurret()
     {
         if (!buildManager.CanUpdate(target))
             return;
         target.UpgradeTurretOnNode();
         buildManager.DeselectNode();    // for hide immediatly the update/sell panel after update operation
+    }
+
+    public void SellTurret()
+    {
+        target.SellTurretOnNode();
+        buildManager.DeselectNode();
     }
 
 }

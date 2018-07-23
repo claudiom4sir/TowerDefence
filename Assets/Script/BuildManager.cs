@@ -8,6 +8,7 @@ public class BuildManager : MonoBehaviour {
     public GameObject buildSTEffect;
     public GameObject buildMLEffect;
     public GameObject buildLTEffect;
+    public GameObject sellEffect;
     public NodeUI nodeUI;
 
     private void Awake()

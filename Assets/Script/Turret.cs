@@ -64,9 +64,29 @@ public class Turret : MonoBehaviour {
 
     }
 
-    public void Upgrade(Turret turret)
+    public void Upgrade(Turret _turret)
     {
-        // implementation is missing
+        _turret.range = _turret.range * 1.2f;
+        if (_turret.isLaserTurret)  // to distinguish the type of turret
+            UpgradeLaserTurret(_turret);
+        else
+            UpgradeOtherTurret(_turret);
+    }
+
+    private void UpgradeLaserTurret(Turret _turret)   //to upgrade a laser turret
+    {
+        _turret.laserDamage = _turret.laserDamage * 2;
+    }
+
+    private void UpgradeOtherTurret(Turret _turret) // to ugrade the another turret that is not laser
+    {
+        Bullet _bullet = _turret.bullet.GetComponent<Bullet>();
+        if(_bullet != null)
+        {
+            _bullet.rangeEffect = _bullet.rangeEffect * 1.2f;
+            _bullet.damage = _bullet.damage * 2;
+        }
+
     }
 
     private void UseBullet() // it is used if the turret is not a laser turret
