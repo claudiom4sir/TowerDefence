@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour {
         GameObject death = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(death, 5f);
         PlayerStatistic.money = PlayerStatistic.money + rewards;
+        PlayerStatistic.enemyKilled++; // for to increase the number of enemy killed
         Destroy(gameObject);
     }
 	

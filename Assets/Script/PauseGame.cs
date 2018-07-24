@@ -7,7 +7,6 @@ public class PauseGame : MonoBehaviour {
 
     public void TogglePauseUI()
     {
-        Debug.Log("pause");
         ui.SetActive(!ui.activeSelf); // if is active, it will be disactived and viceversa
         if (ui.activeSelf)
             Time.timeScale = 0f; // for to freeze the time

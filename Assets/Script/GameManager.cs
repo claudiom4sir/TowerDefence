@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         gameEnded = false;
+        if(Time.timeScale != 1f)
+            Time.timeScale = 1f;
     }
     // Update is called once per frame
     private void Update()
@@ -18,13 +20,18 @@ public class GameManager : MonoBehaviour {
         if (PlayerStatistic.lives <= 0 || Input.GetKey(KeyCode.G))
             EndGame();
         if (Input.GetKeyDown(KeyCode.Space))
-            pauseUI.GetComponent<PauseGame>().TogglePauseUI();
+            PausedGame();
     }
 
     private void EndGame()
     {
         GameManager.gameEnded = true;
-        Time.timeScale = 0f;
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    private void PausedGame()
+    {
+        pauseUI.GetComponent<PauseGame>().TogglePauseUI();
     }
 }
