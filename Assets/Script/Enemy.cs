@@ -1,27 +1,32 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
     public float startSpeed = 10f;   // this is a start speed of moviment of the enemy
     private float currentSpeed;
-    public int health;
+    public float startHealth;
+    private float health;
     private Transform target;   // target is the "ruby" points 
     private int waypointIndex = 0;  // it is used for index in wayPoints.points array
     public GameObject deathEffect;
     public int rewards;
+    public Image healthBar; // it is used for rappresent the health bar
+
 
 	// Use this for initialization
 	private void Start () {
 		target = WayPoints.points[0];
         currentSpeed = startSpeed;
+        health = startHealth;
 	}
 
     public void TakeDamage(int damage)
     {
-        if (health - damage <= 0)
+        health = health - damage;
+        healthBar.fillAmount = health / startHealth; // for update the health bar
+        if (health <= 0)
             Die();
-        else
-            health = health - damage;
     }
 
     public void ModifySpeed(float value)
