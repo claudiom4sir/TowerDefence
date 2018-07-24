@@ -13,6 +13,8 @@ public class GameOver : MonoBehaviour {
 
     public void Retry()
     {
+        if (Time.timeScale != 1f)
+            Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.gameEnded = false;
     }
