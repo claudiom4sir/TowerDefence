@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	public void Play()
+    public SceneFader sceneFader;
+
+    public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // load the level after the menu in buildIndex
+        sceneFader.FadeTo("MainLevel");
     }
 
     public void Quit()

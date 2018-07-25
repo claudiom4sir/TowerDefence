@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemyFactory;
     public Transform spawnPoint;
     public float timeBetweenWave = 2f;
-    private float countDown = 0f;
+    private float countDown = 5f;
     private int waveIndex = 0;
     public Text waveCountDownText; // it is used for display the time for the next wave
 	

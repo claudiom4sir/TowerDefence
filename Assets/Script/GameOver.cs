@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour {
 
+    public SceneFader sceneFader;
     public Text roundsText;
 
     private void OnEnable()
@@ -13,12 +14,13 @@ public class GameOver : MonoBehaviour {
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GameManager.gameEnded = false;
+        GameManager.ResetTimeScale();
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
-        Debug.Log("menu");
+        GameManager.ResetTimeScale();
+        sceneFader.FadeTo("MainMenu");
     }
 }

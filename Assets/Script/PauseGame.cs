@@ -4,6 +4,7 @@ using UnityEngine;
 public class PauseGame : MonoBehaviour {
 
     public GameObject ui;
+    public SceneFader sceneFader;
 
     public void TogglePauseUI()
     {
@@ -16,14 +17,14 @@ public class PauseGame : MonoBehaviour {
 
     public void Retry()
     {
-        if (Time.timeScale != 1f)   // for restart the scene with currect timeScale
-            Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.ResetTimeScale();
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
-        Debug.Log("menu");
+        GameManager.ResetTimeScale();
+        sceneFader.FadeTo("MainMenu");
     }
 
 }
