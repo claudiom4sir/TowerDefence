@@ -21,4 +21,9 @@ public class PauseGame : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void Menu()
+    {
+        Debug.Log("menu");
+    }
+
 }
