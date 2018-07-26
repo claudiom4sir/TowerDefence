@@ -23,11 +23,18 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	private void Update ()  // da completare ****<-----
     {
-        if (target == null && enemyComponent == null)
+        if (target == null)
+        {
             if (rangeEffect <= 0f)
                 Destroy(gameObject);
             else
-                Explode();
+            {
+                if (isLock) // if is a missil and it is lock on one target, explodes hitting all enemy in range 
+                    HitTarget();
+                else
+                    Destroy(gameObject); // if is a missil but it has no target, it doesn't do anything
+            }
+        }
         else if (!enemyComponent.isDead)
         {
             isLock = true;

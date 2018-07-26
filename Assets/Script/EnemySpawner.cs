@@ -65,7 +65,6 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyAlives++;
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        Debug.Log(enemyAlives);
     }
 
 }

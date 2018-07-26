@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 216602489}
   m_Layer: 0
-  m_Name: Laser Turret
+  m_Name: Laser Turret Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5698,6 +5698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 173656969}
+  levelToLoad: LevelSelector
 --- !u!4 &1857537351
 Transform:
   m_ObjectHideFlags: 0
