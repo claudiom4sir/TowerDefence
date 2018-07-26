@@ -7,19 +7,30 @@ public class Bullet : MonoBehaviour {
     public GameObject impactEffect;
     public float rangeEffect = 0f;
     public int damage = 10;
+    private Enemy enemyComponent;
+    private bool isLock = false;
 
     public void SetTarget (Transform _target)
     {
         target = _target;
     }
+
+    public void SetEnemyComponent(Enemy enemy)
+    {
+        enemyComponent = enemy;
+    }
 	
 	// Update is called once per frame
-	private void Update ()
+	private void Update ()  // da completare ****<-----
     {
-        if (target == null)
-            Destroy(gameObject);
-        else
+        if (target == null && enemyComponent == null)
+            if (rangeEffect <= 0f)
+                Destroy(gameObject);
+            else
+                Explode();
+        else if (!enemyComponent.isDead)
         {
+            isLock = true;
             Vector3 bulletDirection = target.position - transform.position;
             float dinstanceInThisFrame = bulletSpeed * Time.deltaTime; // the distance that the bullet will run in this frame
             if (bulletDirection.magnitude <= dinstanceInThisFrame)
@@ -35,7 +46,7 @@ public class Bullet : MonoBehaviour {
     private void HitTarget ()
     {
         GameObject localImpactEffect = Instantiate(impactEffect, transform.position, transform.rotation);
-        if (rangeEffect >= 0)
+        if (rangeEffect > 0)
             Explode();
         else
             Damage(target);
@@ -45,7 +56,9 @@ public class Bullet : MonoBehaviour {
 
     private void Damage(Transform target)
     {
-        target.GetComponent<Enemy>().TakeDamage(damage); // get the Enemy script of target and call TakeDamage
+        Enemy enemy = target.GetComponent<Enemy>();
+        enemy.TakeDamage(damage); // get the Enemy script of target and call TakeDamage
+        isLock = false;
     }
 
     private void Explode() // it call the Damage function for all enemies that are in action range

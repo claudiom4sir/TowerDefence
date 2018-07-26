@@ -53,14 +53,17 @@ public class Turret : MonoBehaviour {
 
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
-        enemyComponent.TakeDamage(laserDamage);
-        enemyComponent.ModifySpeed(reduceVelocityOverHit);
-        Vector3 directionLaserImpactEffect = transform.position - target.position;
-        laserImpactEffect.transform.position = target.position + directionLaserImpactEffect.normalized;
-        laserImpactEffect.Play();
-        laserImpactEffect.transform.rotation = Quaternion.LookRotation(directionLaserImpactEffect); // for rotate the cone of laserImpactEffect
-        lineRenderer.SetPosition(0, fireOrigin.position); // the position where laser has origin
-        lineRenderer.SetPosition(1, target.position);   // the end position of the laser
+        if (!enemyComponent.isDead)
+        {
+            enemyComponent.TakeDamage(laserDamage);
+            enemyComponent.ModifySpeed(reduceVelocityOverHit);
+            Vector3 directionLaserImpactEffect = transform.position - target.position;
+            laserImpactEffect.transform.position = target.position + directionLaserImpactEffect.normalized;
+            laserImpactEffect.Play();
+            laserImpactEffect.transform.rotation = Quaternion.LookRotation(directionLaserImpactEffect); // for rotate the cone of laserImpactEffect
+            lineRenderer.SetPosition(0, fireOrigin.position); // the position where laser has origin
+            lineRenderer.SetPosition(1, target.position);   // the end position of the laser
+        }
 
     }
 
@@ -112,7 +115,10 @@ public class Turret : MonoBehaviour {
         GameObject newBullet = Instantiate(bullet, fireOrigin.position, fireOrigin.rotation);
         Bullet localBullet = newBullet.GetComponent<Bullet>();
         if (localBullet != null)
+        {
             localBullet.SetTarget(target); // it set the target of the bullet
+            localBullet.SetEnemyComponent(enemyComponent);
+        }
     }
 
     private void UpdateTarget ()    // it is used for update the targets 

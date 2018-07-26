@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 135026107335019948}
   - component: {fileID: 114365475177454842}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Tank
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3483311b68eb3a7418c450a08b215af8, type: 2}
+  - {fileID: 2100000, guid: 820f9a0fb0ee674439c2948b53b82102, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,11 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453f178df200c9848873bc9537340223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 10
-  startHealth: 150
-  deathEffect: {fileID: 1841405420878446, guid: 408d9f1afdce4a647b142f81d8b8bcfa,
+  startSpeed: 5
+  startHealth: 500
+  deathEffect: {fileID: 1841405420878446, guid: 43e93eb82d264a14b9e07da63b07604b,
     type: 2}
-  rewards: 100
+  rewards: 200
   healthBar: {fileID: 114855655646081594}
 --- !u!114 &114393146351616810
 MonoBehaviour:

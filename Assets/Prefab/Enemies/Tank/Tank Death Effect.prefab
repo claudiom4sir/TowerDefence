@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198692026832049700}
   - component: {fileID: 199680964655342406}
   m_Layer: 0
-  m_Name: Death Effect
+  m_Name: Tank Death Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4645,8 +4645,8 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3483311b68eb3a7418c450a08b215af8, type: 2}
-  - {fileID: 2100000, guid: 3483311b68eb3a7418c450a08b215af8, type: 2}
+  - {fileID: 2100000, guid: 820f9a0fb0ee674439c2948b53b82102, type: 2}
+  - {fileID: 2100000, guid: 820f9a0fb0ee674439c2948b53b82102, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

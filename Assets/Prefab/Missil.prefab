@@ -128,5 +128,5 @@ MonoBehaviour:
   bulletSpeed: 15
   impactEffect: {fileID: 1359154707937722, guid: 06e080d25ded11441b5133e7335ab6d8,
     type: 2}
-  rangeEffect: 3
-  damage: 50
+  rangeEffect: 3.6000001
+  damage: 100
