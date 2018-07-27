@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 0}
   pauseUI: {fileID: 0}
+  levelCompletedUI: {fileID: 0}
   sceneFader: {fileID: 0}
   nextLevel: 2
 --- !u!114 &114857449594655576

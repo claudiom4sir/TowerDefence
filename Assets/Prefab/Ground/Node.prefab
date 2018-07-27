@@ -111,3 +111,8 @@ MonoBehaviour:
   onMouseEnterColor: {r: 0.46818078, g: 1, b: 0, a: 0}
   turret: {fileID: 0}
   offSet: {x: 0, y: 0.5, z: 0}
+  turretCostsInfo:
+    prefab: {fileID: 0}
+    buildCost: 0
+    upgradeCost: 0
+    sellCost: 0
