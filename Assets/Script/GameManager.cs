@@ -9,10 +9,14 @@ public class GameManager : MonoBehaviour {
     public SceneFader sceneFader;
     public int nextLevel = 2;
 
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     private void Start()
     {
         gameEnded = false;  // when you restart the level, it is used for set a static variable to false
-        Time.timeScale = 1f;
     }
     // Update is called once per frame
     private void Update()

@@ -24,4 +24,9 @@ public class LevelSelector : MonoBehaviour {
     {
         sceneFader.FadeTo(level);
     }
+
+    public void Menu()
+    {
+        sceneFader.FadeTo("MainMenu");
+    }
 }

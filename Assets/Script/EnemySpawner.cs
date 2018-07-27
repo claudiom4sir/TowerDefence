@@ -16,11 +16,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        //enemyAlives = 0;
         levelCompleted = false;
     }
 
-   // Update is called once per frame                   <-- i have updated this method, if the other Update don't work fine, to restore this one
+   // Update is called once per frame
      private void Update ()
      {
          if (enemyAlives > 0) // if there are enemy from the last wave, do nothing

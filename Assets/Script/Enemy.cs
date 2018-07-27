@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour {
         Vector3 direction = target.position - transform.position;   // the vector with direction
         // now, transforms is "this" enemy and function translate allows to move the enemy
         transform.Translate(direction.normalized * currentSpeed * Time.deltaTime, Space.World);
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.3f)
             GetNextWaypoint();
         currentSpeed = startSpeed;
 	}
