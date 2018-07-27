@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
     public GameObject deathEffect;
     public int rewards;
     public Image healthBar; // it is used for rappresent the health bar
-    public bool isDead; // check if the enemy is already died;
+    public bool isDead = false; // check if the enemy is already died;
 
 
 	// Use this for initialization
@@ -20,11 +20,12 @@ public class Enemy : MonoBehaviour {
 		target = WayPoints.points[0];
         currentSpeed = startSpeed;
         health = startHealth;
-        isDead = false;
 	}
 
     public void TakeDamage(int damage)
     {
+        if (isDead)
+            return;
         health = health - damage;
         healthBar.fillAmount = health / startHealth; // for update the health bar
         if (health <= 0)

@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
     public static bool gameEnded;
     public GameObject gameOverUI;
     public GameObject pauseUI;
+    public GameObject levelCompletedUI;
     public SceneFader sceneFader;
     public int nextLevel = 2;
 
@@ -43,9 +44,9 @@ public class GameManager : MonoBehaviour {
 
     public void LevelWon()
     {
-        if(PlayerPrefs.GetInt("levelReached") < nextLevel) // if you re-play one level you already won, if there isn't this statement, will be replaced your actual level
+        gameEnded = true;
+        if (PlayerPrefs.GetInt("levelReached") < nextLevel) // if you re-play one level you already won, if there isn't this statement, will be replaced your actual level
             PlayerPrefs.SetInt("levelReached", nextLevel);
-        Debug.Log("Level completed");
-        sceneFader.FadeTo("LevelSelector"); // after to have completing the level, go to levelSelector scene
+        levelCompletedUI.SetActive(true);
     }
 }

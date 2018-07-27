@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour {
 
     private void OnEnable()
     {
-        roundsText.text = "ROUND " + PlayerStatistic.rounds.ToString();
+        roundsText.text = "WAVE " + PlayerStatistic.rounds;
     }
 
     public void Retry()
