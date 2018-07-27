@@ -54,11 +54,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26915c114efde8e41830ebed29e8913a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyFactory: {fileID: 4036159953719326, guid: e18d5eeca174c3842b49d7f4d68eca89,
-    type: 2}
+  waves:
+  - enemy: {fileID: 1430240426953554, guid: e18d5eeca174c3842b49d7f4d68eca89, type: 2}
+    count: 5
+    rate: 2
+  - enemy: {fileID: 1430240426953554, guid: cbd0e54085504bf448540791d836ae1c, type: 2}
+    count: 10
+    rate: 3
+  - enemy: {fileID: 1430240426953554, guid: 58c80a26a534a5345beda9ba5831900d, type: 2}
+    count: 5
+    rate: 0.5
   spawnPoint: {fileID: 0}
   timeBetweenWave: 5
   waveCountDownText: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &114369857477290400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 1000
-  startLives: 0
+  startLives: 1
 --- !u!114 &114576035408936896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 0}
+  pauseUI: {fileID: 0}
+  sceneFader: {fileID: 0}
+  nextLevel: 2
 --- !u!114 &114857449594655576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,3 +113,5 @@ MonoBehaviour:
     type: 2}
   buildLTEffect: {fileID: 1103887926767552, guid: 585e0179434d70a47a56e90e063e668b,
     type: 2}
+  sellEffect: {fileID: 1098632834973360, guid: 660e76da1c238964783a97fa35073be6, type: 2}
+  nodeUI: {fileID: 0}

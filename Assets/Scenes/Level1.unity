@@ -4112,6 +4112,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f2aa7e50dcee694db903b4e36346d04, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1231832431 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114576035408936896, guid: e4476fe199c6e8d43b1771097ed5380b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1286322131}
+  m_Script: {fileID: 11500000, guid: 8f330f9323e9ce2468daedb6682745be, type: 3}
 --- !u!1001 &1238050969
 Prefab:
   m_ObjectHideFlags: 0
@@ -4591,11 +4597,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4843913059934838, guid: e4476fe199c6e8d43b1771097ed5380b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -86
@@ -4628,6 +4629,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114857449594655576, guid: e4476fe199c6e8d43b1771097ed5380b,
+        type: 2}
+      propertyPath: nodeUI
+      value: 
+      objectReference: {fileID: 1577262526}
+    - target: {fileID: 114576035408936896, guid: e4476fe199c6e8d43b1771097ed5380b,
+        type: 2}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 680603545}
+    - target: {fileID: 114576035408936896, guid: e4476fe199c6e8d43b1771097ed5380b,
+        type: 2}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 795392074}
     - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
         type: 2}
       propertyPath: spawnPoint
@@ -4638,80 +4654,16 @@ Prefab:
       propertyPath: waveCountDownText
       value: 
       objectReference: {fileID: 817008189}
+    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1231832431}
     - target: {fileID: 114576035408936896, guid: e4476fe199c6e8d43b1771097ed5380b,
         type: 2}
-      propertyPath: gameOverUI
+      propertyPath: sceneFader
       value: 
-      objectReference: {fileID: 680603545}
-    - target: {fileID: 114369857477290400, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: startLives
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114857449594655576, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: nodeUI
-      value: 
-      objectReference: {fileID: 1577262526}
-    - target: {fileID: 114857449594655576, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: sellEffect
-      value: 
-      objectReference: {fileID: 1098632834973360, guid: 660e76da1c238964783a97fa35073be6,
-        type: 2}
-    - target: {fileID: 114576035408936896, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: pauseUI
-      value: 
-      objectReference: {fileID: 795392074}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[0].enemy
-      value: 
-      objectReference: {fileID: 1430240426953554, guid: e18d5eeca174c3842b49d7f4d68eca89,
-        type: 2}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[0].count
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[0].rate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[1].enemy
-      value: 
-      objectReference: {fileID: 1430240426953554, guid: cbd0e54085504bf448540791d836ae1c,
-        type: 2}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[1].rate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[1].count
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[2].enemy
-      value: 
-      objectReference: {fileID: 1430240426953554, guid: 58c80a26a534a5345beda9ba5831900d,
-        type: 2}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[2].count
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114023664155287930, guid: e4476fe199c6e8d43b1771097ed5380b,
-        type: 2}
-      propertyPath: waves.Array.data[2].rate
-      value: 0.5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2020787100}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4476fe199c6e8d43b1771097ed5380b, type: 2}
   m_IsPrefabParent: 0

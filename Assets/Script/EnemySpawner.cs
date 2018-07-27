@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private float countDown = 5f;
     private int waveIndex = 0;
     public Text waveCountDownText; // it is used for display the time for the next wave
+    public GameManager gameManager;
 
     private void Start()
     {
@@ -19,19 +20,31 @@ public class EnemySpawner : MonoBehaviour
         levelCompleted = false;
     }
 
-    // Update is called once per frame
-    private void Update ()
+    private bool isWon()
     {
-        if (enemyAlives > 0) // if there are enemy from the last wave, do nothing
-            return;
-        if(enemyAlives <= 0 && waveIndex >= waves.Length)
+        if (enemyAlives <= 0 && waveIndex >= waves.Length)
         {
-            Debug.Log("Level Completed");
             levelCompleted = true;
             this.enabled = false;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (levelCompleted)
+            return;
+        if (enemyAlives > 0) // if there are enemy from the last wave, do nothing
+            return;
+        if (isWon())
+        {
+            gameManager.LevelWon();
             return;
         }
-        if (countDown <= 0f && !levelCompleted)
+        if (countDown <= 0f)
         {
             StartCoroutine(WaveStart());    //start a new coroutine that can be paused by a yield return
             countDown = timeBetweenWave;
@@ -43,7 +56,33 @@ public class EnemySpawner : MonoBehaviour
         else
             waveCountDownText.text = timeToNextWave;
         countDown = countDown - Time.deltaTime;
-	}
+    }
+
+    /* // Update is called once per frame                   <-- i have updated this method, if the other Update don't work fine, to restore this one
+     private void Update ()
+     {
+         if (enemyAlives > 0) // if there are enemy from the last wave, do nothing
+             return;
+         if(enemyAlives <= 0 && waveIndex >= waves.Length)
+         {
+             gameManager.LevelWon();
+             levelCompleted = true;
+             this.enabled = false;
+             return;
+         }
+         if (countDown <= 0f && !levelCompleted)
+         {
+             StartCoroutine(WaveStart());    //start a new coroutine that can be paused by a yield return
+             countDown = timeBetweenWave;
+             return;
+         }
+         string timeToNextWave = Mathf.Floor(countDown).ToString(); //update the value inside the text
+         if (timeToNextWave.Equals("0"))
+             waveCountDownText.text = "Wave " + (waveIndex + 1) + " incoming!";
+         else
+             waveCountDownText.text = timeToNextWave;
+         countDown = countDown - Time.deltaTime;
+     }*/
 
     // coroutine is necessary because the enemy will be created every WaitForSeconds() time;
     // using waves, every wave's behavior is driven by WaveInfo class, so every waves can be different each other

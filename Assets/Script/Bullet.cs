@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour {
     public void SetTarget (Transform _target)
     {
         target = _target;
+        impactEffect.GetComponent<Renderer>().material = target.GetComponent<Renderer>().material; // for to change the impact effect material based on the target material
     }
 
     public void SetEnemyComponent(Enemy enemy)
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour {
             else
             {
                 if (isLock) // if is a missil and it is lock on one target, explodes hitting all enemy in range 
-                    HitTarget();
+                    HitTarget(); // used HitTarget and not Explode (more correct) in consequence to the implementation
                 else
                     Destroy(gameObject); // if is a missil but it has no target, it doesn't do anything
             }

@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 114185098806527580}
+  timeForFadeIn: 2
+  timeForFadeOut: 1
 --- !u!114 &114473050069130982
 MonoBehaviour:
   m_ObjectHideFlags: 1

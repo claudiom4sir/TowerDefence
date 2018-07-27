@@ -884,6 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 490591825}
+  levels: {fileID: 247694838}
 --- !u!4 &1324542401
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,7 +1090,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 354754604}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999998
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

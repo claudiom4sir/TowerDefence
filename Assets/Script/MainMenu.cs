@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour {
 
     public void Quit()
     {
+        PlayerPrefs.DeleteAll(); // <-- used for test, i have to delete before deploy
         Debug.Log("quitting from application");
         Application.Quit();
     }

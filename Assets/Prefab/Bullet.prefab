@@ -101,7 +101,7 @@ MonoBehaviour:
   impactEffect: {fileID: 1014991097998854, guid: 8f3cb172821a1b545bc719011e9bd300,
     type: 2}
   rangeEffect: 0
-  damage: 10
+  damage: 20
 --- !u!135 &135662579709210050
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour {
     public static bool gameEnded;
     public GameObject gameOverUI;
     public GameObject pauseUI;
+    public SceneFader sceneFader;
+    public int nextLevel = 2;
 
     private void Start()
     {
@@ -37,5 +39,13 @@ public class GameManager : MonoBehaviour {
     public static void ResetTimeScale() // it is used everytime appear pause or gameover UIs
     {
         Time.timeScale = 1f;
+    }
+
+    public void LevelWon()
+    {
+        if(PlayerPrefs.GetInt("levelReached") < nextLevel) // if you re-play one level you already won, if there isn't this statement, will be replaced your actual level
+            PlayerPrefs.SetInt("levelReached", nextLevel);
+        Debug.Log("Level completed");
+        sceneFader.FadeTo("LevelSelector"); // after to have completing the level, go to levelSelector scene
     }
 }
