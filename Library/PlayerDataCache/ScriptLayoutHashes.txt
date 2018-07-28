@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Claudio/Desktop/Prova/Prova.exe
+C:/Users/Claudio/Documents/GitHub/TowerDefence/Windows/Windows.exe
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/LevelSelector.unity
