@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        enemyAlives = 0;
         levelCompleted = false;
     }
 

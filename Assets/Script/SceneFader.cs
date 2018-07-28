@@ -17,7 +17,8 @@ public class SceneFader : MonoBehaviour {
     //**USED INSTEAD OF LOADSCENE**
     public void FadeTo(string scene) // called when you need to change scene 
     {
-        StartCoroutine(FadeOut(scene));
+        SceneManager.LoadScene(scene);
+        //StartCoroutine(FadeOut(scene));
     }
 
     IEnumerator FadeIn() // for to fade the color from  opaque to trasparent
